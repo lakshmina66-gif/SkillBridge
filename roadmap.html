@@ -1,0 +1,792 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SkillBridge - My Roadmap</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+nav{
+    background:#173b8f;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h2{
+    color:white;
+    font-size:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:15px;
+}
+
+nav a:hover{
+    opacity:.8;
+}
+
+.roadmap-header{
+    background:white;
+    text-align:center;
+    padding:55px 20px 45px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.small-title{
+    color:#2563eb;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.roadmap-header h1{
+    font-size:40px;
+    color:#173b8f;
+    margin-bottom:10px;
+}
+
+.roadmap-header p{
+    color:#6b7280;
+    font-size:16px;
+}
+
+.roadmap-container{
+    max-width:1150px;
+    margin:45px auto;
+    padding:0 25px;
+}
+
+.intro-card{
+    background:linear-gradient(135deg,#173b8f,#2563eb);
+    color:white;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:40px;
+}
+
+.intro-card h2{
+    margin-bottom:10px;
+}
+
+.intro-card p{
+    font-size:14px;
+    line-height:1.6;
+    opacity:.9;
+}
+
+.section-title{
+    margin-bottom:25px;
+}
+
+.section-title span{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    color:#173b8f;
+    margin-top:7px;
+    font-size:28px;
+}
+
+.roadmap-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.roadmap-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+    transition:.25s;
+}
+
+.roadmap-card:hover{
+    transform:translateY(-4px);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:#eef4ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.status{
+    font-size:11px;
+    font-weight:bold;
+    padding:7px 12px;
+    border-radius:20px;
+}
+
+.focus{
+    background:#fff1f2;
+    color:#be123c;
+}
+
+.practice{
+    background:#fff7ed;
+    color:#c2410c;
+}
+
+.strong{
+    background:#ecfdf5;
+    color:#047857;
+}
+
+.not-assessed{
+    background:#eef2f7;
+    color:#64748b;
+}
+
+.score{
+    font-size:13px;
+    color:#4b5563;
+    margin-bottom:8px;
+}
+
+.score strong{
+    color:#173b8f;
+}
+
+.learning-progress{
+    margin-top:16px;
+}
+
+.learning-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:8px;
+    background:#e9edf5;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:#2563eb;
+    border-radius:20px;
+}
+
+.roadmap-card h3{
+    color:#173b8f;
+    margin-bottom:10px;
+    font-size:19px;
+}
+
+.roadmap-card p{
+    color:#6b7280;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.learn-btn{
+    display:inline-block;
+    margin-top:18px;
+    background:#173b8f;
+    color:white;
+    padding:10px 17px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.next-step{
+    margin-top:40px;
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+}
+
+.next-step h2{
+    color:#173b8f;
+    margin-bottom:10px;
+}
+
+.next-step p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.next-step a{
+    display:inline-block;
+    background:#173b8f;
+    color:white;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+@media(max-width:800px){
+
+    nav{
+        padding:18px 25px;
+    }
+
+    nav a{
+        margin-left:10px;
+        font-size:13px;
+    }
+
+    .roadmap-grid{
+        grid-template-columns:1fr;
+    }
+
+    .roadmap-header h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillBridge</h2>
+
+    <div>
+
+        <a href="index.html">Home</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="internship.html">Internships</a>
+
+    </div>
+
+</nav>
+
+
+<header class="roadmap-header">
+
+    <div class="small-title">
+        PERSONALIZED LEARNING
+    </div>
+
+    <h1>My Learning Roadmap</h1>
+
+    <p>
+        Explore any subject and build your skills at your own pace.
+    </p>
+
+</header>
+
+
+<main class="roadmap-container">
+
+
+    <div class="intro-card">
+
+        <h2 id="roadmap-message">
+            Your Learning Roadmap 🚀
+        </h2>
+
+        <p>
+            You can explore any subject even without taking an assessment.
+            If you complete an assessment, your performance will be shown
+            separately from your learning progress.
+        </p>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <span>
+            YOUR LEARNING PLAN
+        </span>
+
+        <h2>
+            Subject-wise Roadmap
+        </h2>
+
+    </div>
+
+
+    <div class="roadmap-grid" id="roadmap-grid"></div>
+
+
+    <div class="next-step">
+
+        <h2>
+            Want Personalized Recommendations?
+        </h2>
+
+        <p>
+            Take a subject assessment to understand which areas
+            need more practice.
+        </p>
+
+        <a href="assessment.html">
+            Take Assessment →
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 SkillBridge. Build Your Skills. Build Your Future.
+
+</footer>
+
+
+<script>
+
+
+const subjects = [
+
+    {
+        name:"Programming",
+        key:"programmingScore",
+        icon:"💻",
+        link:"programming-learning.html"
+    },
+
+    {
+        name:"Data Structures & Algorithms",
+        key:"dsaScore",
+        icon:"🧩",
+        link:"dsa.html"
+    },
+
+    {
+        name:"DBMS",
+        key:"dbmsScore",
+        icon:"🗄️",
+        link:"dbms.html"
+    },
+
+    {
+        name:"Operating System",
+        key:"osScore",
+        icon:"⚙️",
+        link:"os.html"
+    },
+
+    {
+        name:"Computer Networks",
+        key:"cnScore",
+        icon:"🌐",
+        link:"cn.html"
+    },
+
+    {
+        name:"Cyber Security",
+        key:"cyberSecurityScore",
+        icon:"🔐",
+        link:"cybersecurity.html"
+    },
+
+    {
+        name:"Web Development",
+        key:"webScore",
+        icon:"🖥️",
+        link:"web.html"
+    },
+
+    {
+        name:"Cloud Computing",
+        key:"cloudScore",
+        icon:"☁️",
+        link:"cloud.html"
+    },
+
+    {
+        name:"AI / ML",
+        key:"aimlScore",
+        icon:"🤖",
+        link:"aiml.html"
+    },
+
+    {
+        name:"Computer Organization",
+        key:"coaScore",
+        icon:"🧠",
+        link:"coa.html"
+    }
+
+];
+
+
+const grid =
+    document.getElementById("roadmap-grid");
+
+
+/* 
+   DBMS LEARNING PROGRESS
+   44 TOPICS
+*/
+
+function getDBMSProgress(){
+
+    const topics = [
+
+        "introduction",
+        "file-system",
+        "architecture",
+        "data-models",
+        "database-users",
+
+        "entity",
+        "relationships",
+        "er-diagram",
+        "keys",
+        "er-relational",
+
+        "relational-model",
+        "primary-foreign",
+        "constraints",
+        "relational-algebra",
+
+        "sql-introduction",
+        "ddl",
+        "dml",
+        "dql",
+        "dcl-tcl",
+        "where-order",
+        "aggregate",
+        "joins",
+        "subqueries",
+        "sql-practice",
+
+        "functional-dependency",
+        "1nf",
+        "2nf",
+        "3nf",
+        "bcnf",
+        "normalization-practice",
+
+        "transactions",
+        "acid",
+        "concurrency",
+        "serializability",
+        "deadlock",
+
+        "indexing",
+        "btree",
+        "views",
+        "stored-procedures",
+        "triggers",
+
+        "mcqs",
+        "sql-problems",
+        "interview",
+        "final-assessment"
+
+    ];
+
+
+    let completed = 0;
+
+
+    topics.forEach(function(topic){
+
+        if(
+            localStorage.getItem("dbms_" + topic)
+            === "completed"
+        ){
+
+            completed++;
+
+        }
+
+    });
+
+
+    return Math.round(
+        (completed / topics.length) * 100
+    );
+
+}
+
+
+/* CREATE ALL SUBJECT CARDS */
+
+subjects.forEach(function(subject){
+
+
+    const savedScore =
+        localStorage.getItem(subject.key);
+
+
+    let learningProgress = 0;
+
+
+    /*
+       DBMS progress is calculated
+       from the 44 learning topics.
+    */
+
+    if(subject.name === "DBMS"){
+
+        learningProgress =
+            getDBMSProgress();
+
+    }
+
+
+    /*
+       Assessment information
+    */
+
+    let status;
+    let statusClass;
+    let description;
+    let scoreText;
+
+
+    if(savedScore === null){
+
+        status = "Not Assessed";
+        statusClass = "not-assessed";
+
+        description =
+            "You can start learning this subject without taking an assessment.";
+
+        scoreText =
+            "Assessment: Not Attempted";
+
+    }
+
+
+    else{
+
+        const score =
+            Number(savedScore);
+
+
+        const percentage =
+            Math.round((score / 20) * 100);
+
+
+        scoreText =
+            "Assessment Score: <strong>"
+            + score
+            + "/20</strong>";
+
+
+        if(percentage < 50){
+
+            status = "Focus More";
+            statusClass = "focus";
+
+            description =
+                "This subject needs more attention. Start with fundamentals and practice regularly.";
+
+        }
+
+        else if(percentage < 80){
+
+            status = "Practice";
+            statusClass = "practice";
+
+            description =
+                "You have a good foundation. Practice more questions and strengthen your concepts.";
+
+        }
+
+        else{
+
+            status = "Strong";
+            statusClass = "strong";
+
+            description =
+                "You are performing well. Move towards advanced concepts and projects.";
+
+        }
+
+    }
+
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "roadmap-card";
+
+
+    card.innerHTML = `
+
+        <div class="card-top">
+
+            <div class="icon">
+                ${subject.icon}
+            </div>
+
+            <div class="status ${statusClass}">
+                ${status}
+            </div>
+
+        </div>
+
+
+        <h3>
+            ${subject.name}
+        </h3>
+
+
+        <p>
+            ${description}
+        </p>
+
+
+        <div class="score">
+
+            ${scoreText}
+
+        </div>
+
+
+        <div class="learning-progress">
+
+            <div class="learning-label">
+
+                <span>
+                    Learning Progress
+                </span>
+
+                <span>
+                    ${learningProgress}%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    style="width:${learningProgress}%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="${subject.link}"
+            class="learn-btn"
+        >
+            ${
+                learningProgress === 100
+                ? "Review Learning →"
+                : "Start Learning →"
+            }
+        </a>
+
+    `;
+
+
+    grid.appendChild(card);
+
+});
+
+
+/*
+   Check if any assessment exists
+*/
+
+let anyAssessment = false;
+
+
+subjects.forEach(function(subject){
+
+    if(
+        localStorage.getItem(subject.key) !== null
+    ){
+
+        anyAssessment = true;
+
+    }
+
+});
+
+
+if(anyAssessment){
+
+    document.getElementById("roadmap-message").innerText =
+        "Your Personalized Learning Roadmap 🎯";
+
+}
+
+else{
+
+    document.getElementById("roadmap-message").innerText =
+        "Start Learning at Your Own Pace 🚀";
+
+}
+
+
+</script>
+
+</body>
+
+</html>
+```

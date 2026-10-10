@@ -1,0 +1,665 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DBMS Learning | SkillBridge</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 24px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #173b8f, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .progress-card {
+            background: white;
+            margin: -30px auto 35px;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-top h2 {
+            color: #173b8f;
+            font-size: 22px;
+        }
+
+        .progress-number {
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 14px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #2563eb;
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-text {
+            margin-top: 12px;
+            color: #6b7280;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #2563eb;
+            background: white;
+            border: 2px solid #2563eb;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #173b8f;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-bottom: 50px;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37,99,235,0.15);
+        }
+
+        .topic-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .topic-card h3 {
+            color: #173b8f;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .topic-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .status {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .status.completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .learn-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .learn-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .completion-message {
+            display: none;
+            background: #ecfdf5;
+            color: #047857;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        SkillBridge
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+        <a href="subject.html">Subjects</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>🗄️ DBMS Learning</h1>
+
+    <p>
+        Learn Database Management System step by step
+    </p>
+
+</section>
+
+
+<div class="container">
+
+
+<!-- PROGRESS -->
+
+<div class="progress-card">
+
+    <div class="progress-top">
+
+        <h2>📊 Your DBMS Progress</h2>
+
+        <div class="progress-number" id="progressNumber">
+            0%
+        </div>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+
+    </div>
+
+
+    <p class="progress-text" id="progressText">
+        0 of 5 topics completed
+    </p>
+
+</div>
+
+
+<!-- BACK BUTTON -->
+
+<a href="roadmap.html" class="back-btn">
+    ← Back to Roadmap
+</a>
+
+
+<!-- TOPICS -->
+
+<div class="section-title">
+
+    <h2>📚 DBMS Topics</h2>
+
+    <p>
+        Complete these topics to build your DBMS fundamentals.
+    </p>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+    <!-- TOPIC 1 -->
+
+    <div class="topic-card">
+
+        <div class="topic-icon">
+            📘
+        </div>
+
+        <h3>
+            Introduction to DBMS
+        </h3>
+
+        <p>
+            Learn what DBMS is, why it is needed,
+            its features and common examples.
+        </p>
+
+        <span
+            class="status"
+            id="status-introduction">
+            Not Started
+        </span>
+
+        <a
+            href="dbms-introduction.html"
+            class="learn-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+
+    <!-- TOPIC 2 -->
+
+    <div class="topic-card">
+
+        <div class="topic-icon">
+            📁
+        </div>
+
+        <h3>
+            DBMS vs File System
+        </h3>
+
+        <p>
+            Understand the difference between traditional
+            file systems and DBMS.
+        </p>
+
+        <span
+            class="status"
+            id="status-file-system">
+            Not Started
+        </span>
+
+        <a
+            href="dbms-file-system.html"
+            class="learn-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+
+    <!-- TOPIC 3 -->
+
+    <div class="topic-card">
+
+        <div class="topic-icon">
+            🏗️
+        </div>
+
+        <h3>
+            DBMS Architecture
+        </h3>
+
+        <p>
+            Learn 1-tier, 2-tier and 3-tier architecture
+            with a simple real-life example.
+        </p>
+
+        <span
+            class="status"
+            id="status-architecture">
+            Not Started
+        </span>
+
+        <a
+            href="dbms-architecture.html"
+            class="learn-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+
+    <!-- TOPIC 4 -->
+
+    <div class="topic-card">
+
+        <div class="topic-icon">
+            🗂️
+        </div>
+
+        <h3>
+            Data Models
+        </h3>
+
+        <p>
+            Learn hierarchical, network, relational
+            and object-oriented data models.
+        </p>
+
+        <span
+            class="status"
+            id="status-data-models">
+            Not Started
+        </span>
+
+        <a
+            href="dbms-data-models.html"
+            class="learn-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+
+    <!-- TOPIC 5 -->
+
+    <div class="topic-card">
+
+        <div class="topic-icon">
+            🔑
+        </div>
+
+        <h3>
+            DBMS Keys
+        </h3>
+
+        <p>
+            Learn Primary Key, Foreign Key, Candidate Key,
+            Super Key and Composite Key.
+        </p>
+
+        <span
+            class="status"
+            id="status-keys">
+            Not Started
+        </span>
+
+        <a
+            href="dbms-keys.html"
+            class="learn-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- COMPLETION MESSAGE -->
+
+<div
+    class="completion-message"
+    id="completionMessage">
+
+    🎉 Congratulations! You have completed all 5 DBMS topics!
+
+
+</div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 SkillBridge |
+    Learn. Improve. Get Ready.
+
+</footer>
+
+
+<script>
+
+
+const topics = [
+
+    "introduction",
+    "file-system",
+    "architecture",
+    "data-models",
+    "keys"
+
+];
+
+
+function updateProgress() {
+
+    let completed = 0;
+
+
+    topics.forEach(function(topic) {
+
+        const status =
+            document.getElementById(
+                "status-" + topic
+            );
+
+
+        if (
+            localStorage.getItem(
+                "dbms_" + topic
+            ) === "completed"
+        ) {
+
+            completed++;
+
+
+            status.innerHTML =
+                "✓ Completed";
+
+            status.classList.add(
+                "completed"
+            );
+
+        }
+
+        else {
+
+            status.innerHTML =
+                "Not Started";
+
+            status.classList.remove(
+                "completed"
+            );
+
+        }
+
+    });
+
+
+    const percentage =
+        Math.round(
+            (completed / topics.length) * 100
+        );
+
+
+    document.getElementById(
+        "progressNumber"
+    ).innerHTML = percentage + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width = percentage + "%";
+
+
+    document.getElementById(
+        "progressText"
+    ).innerHTML =
+        completed +
+        " of " +
+        topics.length +
+        " topics completed";
+
+
+    if (completed === topics.length) {
+
+        document.getElementById(
+            "completionMessage"
+        ).style.display = "block";
+
+    }
+
+    else {
+
+        document.getElementById(
+            "completionMessage"
+        ).style.display = "none";
+
+    }
+
+}
+
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>
+```

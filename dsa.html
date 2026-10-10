@@ -1,0 +1,1113 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SkillBridge - DSA Learning</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+
+/* NAVBAR */
+
+nav{
+    background:#173b8f;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h2{
+    color:white;
+    font-size:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:15px;
+}
+
+nav a:hover{
+    opacity:.8;
+}
+
+
+/* HEADER */
+
+.learning-header{
+    background:white;
+    padding:50px 25px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.learning-label{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.learning-header h1{
+    color:#173b8f;
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.learning-header p{
+    color:#6b7280;
+    max-width:650px;
+    margin:auto;
+    line-height:1.6;
+}
+
+
+/* MAIN */
+
+.container{
+    max-width:1150px;
+    margin:45px auto;
+    padding:0 25px;
+}
+
+
+/* PROGRESS CARD */
+
+.progress-card{
+    background:linear-gradient(135deg,#173b8f,#2563eb);
+    color:white;
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:40px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.progress-top h2{
+    font-size:21px;
+}
+
+.progress-percent{
+    font-size:26px;
+    font-weight:bold;
+}
+
+.progress-bar{
+    width:100%;
+    height:9px;
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:white;
+    border-radius:20px;
+}
+
+
+/* SECTION */
+
+.section-heading{
+    margin-bottom:22px;
+}
+
+.section-heading span{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-heading h2{
+    color:#173b8f;
+    font-size:28px;
+    margin-top:7px;
+}
+
+
+/* TOPICS */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+
+/* TOPIC CARD */
+
+.topic-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:17px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+    transition:.25s;
+}
+
+.topic-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.09);
+}
+
+.topic-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.topic-icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.topic-status{
+    font-size:11px;
+    font-weight:bold;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#f3f4f6;
+    color:#6b7280;
+}
+
+.topic-card.completed .topic-status{
+    background:#ecfdf5;
+    color:#047857;
+}
+
+.topic-card.in-progress .topic-status{
+    background:#fff7ed;
+    color:#c2410c;
+}
+
+.topic-card h3{
+    color:#173b8f;
+    margin-bottom:9px;
+    font-size:18px;
+}
+
+.topic-card p{
+    color:#6b7280;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+
+/* TOPIC PROGRESS */
+
+.topic-progress{
+    margin-bottom:18px;
+}
+
+.topic-progress-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:7px;
+}
+
+.topic-progress-bar{
+    height:7px;
+    background:#e9edf5;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.topic-progress-fill{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+}
+
+
+/* BUTTON */
+
+.learn-btn{
+    display:inline-block;
+    background:#173b8f;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.learn-btn:hover{
+    background:#2563eb;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        padding:18px 25px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin-left:10px;
+        font-size:13px;
+    }
+
+    .learning-header h1{
+        font-size:32px;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .progress-top{
+        gap:15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h2>SkillBridge</h2>
+
+    <div>
+
+        <a href="index.html">Home</a>
+
+        <a href="assessment.html">Assessment</a>
+
+        <a href="roadmap.html">Roadmap</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<header class="learning-header">
+
+    <div class="learning-label">
+        DATA STRUCTURES & ALGORITHMS
+    </div>
+
+    <h1>Master DSA Step by Step</h1>
+
+    <p>
+        Learn important data structures and algorithms,
+        practice problems, and build strong problem-solving skills.
+    </p>
+
+</header>
+
+
+<main class="container">
+
+
+    <!-- OVERALL PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-top">
+
+            <h2>
+                Your DSA Progress
+            </h2>
+
+            <div
+                class="progress-percent"
+                id="overall-percent">
+                0%
+            </div>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="overall-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOPICS -->
+
+    <div class="section-heading">
+
+        <span>
+            LEARNING PATH
+        </span>
+
+        <h2>
+            DSA Topics
+        </h2>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <!-- ARRAY -->
+
+        <div class="topic-card" data-topic="arrays">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🔢
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Arrays
+            </h3>
+
+            <p>
+                Learn array basics, traversal, searching,
+                sorting and common array problems.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="arrays.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- STRINGS -->
+
+        <div class="topic-card" data-topic="strings">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🔤
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Strings
+            </h3>
+
+            <p>
+                Understand string manipulation,
+                character frequency, palindrome and more.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="strings.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- LINKED LIST -->
+
+        <div class="topic-card" data-topic="linkedlist">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🔗
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Linked List
+            </h3>
+
+            <p>
+                Learn nodes, traversal, insertion,
+                deletion and linked list problems.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="linkedlist.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- STACK -->
+
+        <div class="topic-card" data-topic="stack">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    📚
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Stack
+            </h3>
+
+            <p>
+                Understand LIFO, stack operations,
+                applications and important problems.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="stack.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- QUEUE -->
+
+        <div class="topic-card" data-topic="queue">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🚶
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Queue
+            </h3>
+
+            <p>
+                Learn FIFO, enqueue, dequeue,
+                circular queue and priority queue.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="queue.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- TREES -->
+
+        <div class="topic-card" data-topic="trees">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🌳
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Trees
+            </h3>
+
+            <p>
+                Learn binary trees, BST,
+                traversals and tree-based problems.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="trees.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- GRAPHS -->
+
+        <div class="topic-card" data-topic="graphs">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    🕸️
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Graphs
+            </h3>
+
+            <p>
+                Understand graph representation,
+                BFS, DFS and important graph algorithms.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="graphs.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+        <!-- ALGORITHMS -->
+
+        <div class="topic-card" data-topic="algorithms">
+
+            <div class="topic-top">
+
+                <div class="topic-icon">
+                    ⚡
+                </div>
+
+                <div class="topic-status">
+                    Not Started
+                </div>
+
+            </div>
+
+            <h3>
+                Algorithms
+            </h3>
+
+            <p>
+                Learn searching, sorting, greedy,
+                recursion, dynamic programming and more.
+            </p>
+
+            <div class="topic-progress">
+
+                <div class="topic-progress-label">
+
+                    <span>Progress</span>
+
+                    <span class="topic-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="topic-progress-bar">
+
+                    <div class="topic-progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="algorithms.html" class="learn-btn">
+                Start Learning →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 SkillBridge. Build Your Skills. Build Your Future.
+
+</footer>
+
+
+<script>
+
+/* ============================= */
+/* TOPIC PROGRESS */
+/* ============================= */
+
+const progressData = {
+
+
+    /* ARRAYS */
+
+    arrays:
+        localStorage.getItem("arraysCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* STRINGS */
+
+    strings:
+        localStorage.getItem("stringsCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* LINKED LIST */
+
+    linkedlist:
+        localStorage.getItem("linkedlistCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* STACK */
+
+    stack:
+        localStorage.getItem("stackCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* QUEUE */
+
+    queue:
+        localStorage.getItem("queueCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* TREES */
+
+    trees:
+        localStorage.getItem("treesCompleted") === "true"
+        ? 100 : 0,
+
+
+    /* ============================= */
+    /* GRAPHS */
+    /* ============================= */
+
+    graphs: (() => {
+
+        const graphTopics = [
+
+            "graph-basics",
+            "graph-representation",
+            "bfs",
+            "dfs",
+            "graph-practice"
+
+        ];
+
+        let completed = 0;
+
+
+        graphTopics.forEach(topic => {
+
+            if(
+                localStorage.getItem(
+                    "graphs_" + topic
+                ) === "completed"
+            ){
+
+                completed++;
+
+            }
+
+        });
+
+
+        return Math.round(
+            (completed / graphTopics.length) * 100
+        );
+
+    })(),
+
+
+    /* ============================= */
+    /* ALGORITHMS */
+    /* ============================= */
+
+    algorithms: (() => {
+
+        const algorithmTopics = [
+
+            "searching",
+            "sorting",
+            "greedy",
+            "recursion",
+            "dynamic-programming",
+            "algorithm-practice"
+
+        ];
+
+        let completed = 0;
+
+
+        algorithmTopics.forEach(topic => {
+
+            if(
+                localStorage.getItem(
+                    "algorithms_" + topic
+                ) === "completed"
+            ){
+
+                completed++;
+
+            }
+
+        });
+
+
+        return Math.round(
+            (completed / algorithmTopics.length) * 100
+        );
+
+    })()
+
+};
+
+
+/* ============================= */
+/* UPDATE CARDS */
+/* ============================= */
+
+const cards =
+    document.querySelectorAll(".topic-card");
+
+
+let totalProgress = 0;
+
+
+cards.forEach(card => {
+
+    const topic =
+        card.dataset.topic;
+
+
+    const progress =
+        progressData[topic] || 0;
+
+
+    totalProgress += progress;
+
+
+    const fill =
+        card.querySelector(
+            ".topic-progress-fill"
+        );
+
+
+    const percent =
+        card.querySelector(
+            ".topic-percent"
+        );
+
+
+    const status =
+        card.querySelector(
+            ".topic-status"
+        );
+
+
+    /* PROGRESS BAR */
+
+    if(fill){
+
+        fill.style.width =
+            progress + "%";
+
+    }
+
+
+    /* PERCENTAGE */
+
+    if(percent){
+
+        percent.innerText =
+            progress + "%";
+
+    }
+
+
+    /* STATUS */
+
+    if(status){
+
+        if(progress === 100){
+
+            card.classList.add(
+                "completed"
+            );
+
+            status.innerText =
+                "Completed";
+
+        }
+
+        else if(progress > 0){
+
+            card.classList.add(
+                "in-progress"
+            );
+
+            status.innerText =
+                "In Progress";
+
+        }
+
+        else{
+
+            status.innerText =
+                "Not Started";
+
+        }
+
+    }
+
+});
+
+
+/* ============================= */
+/* OVERALL DSA PROGRESS */
+/* ============================= */
+
+const overall =
+    Math.round(
+        totalProgress / 8
+    );
+
+
+document.getElementById(
+    "overall-percent"
+).innerText =
+    overall + "%";
+
+
+document.getElementById(
+    "overall-fill"
+).style.width =
+    overall + "%";
+
+
+</script>
+
+
+</body>
+
+</html>
+```
